@@ -128,13 +128,13 @@ link. License validation happens locally against a signed token.
 ## Download
 
 Every release is published on this repo's
-[Releases page](https://github.com/Kristofp/RegexPilot/releases/latest),
+[Releases page](https://github.com/Kristofp/regexpilot-community/releases/latest),
 built and uploaded by the same release run that ships the app:
 
-- **App (DMG):** [RegexPilot-universal.dmg](https://github.com/Kristofp/RegexPilot/releases/latest/download/RegexPilot-universal.dmg)
+- **App (DMG):** [RegexPilot-universal.dmg](https://github.com/Kristofp/regexpilot-community/releases/latest/download/RegexPilot-universal.dmg)
   — universal binary (Apple Silicon + Intel), signed and notarized.
-- **All themes:** [regexpilot-themes.zip](https://github.com/Kristofp/RegexPilot/releases/latest/download/regexpilot-themes.zip)
-- **All translations:** [regexpilot-translations.zip](https://github.com/Kristofp/RegexPilot/releases/latest/download/regexpilot-translations.zip)
+- **All themes:** [regexpilot-themes.zip](https://github.com/Kristofp/regexpilot-community/releases/latest/download/regexpilot-themes.zip)
+- **All translations:** [regexpilot-translations.zip](https://github.com/Kristofp/regexpilot-community/releases/latest/download/regexpilot-translations.zip)
 - **Mac App Store:** [apps.apple.com/us/app/regexpilot](https://apps.apple.com/us/app/regexpilot/id6764146125?platform=mac)
   — same app; Apple handles payment and updates.
 - **Homebrew:**
@@ -160,9 +160,9 @@ Install from the [VS Code Marketplace](https://marketplace.visualstudio.com/item
 This repo hosts the **public issue tracker**. The app's source is private;
 this exists so bugs and feature requests are visible and trackable.
 
-- [Open a bug report](https://github.com/Kristofp/RegexPilot/issues/new?template=bug_report.md)
-- [Open a feature request](https://github.com/Kristofp/RegexPilot/issues/new?template=feature_request.md)
-- Or start from the [issue chooser](https://github.com/Kristofp/RegexPilot/issues/new/choose)
+- [Open a bug report](https://github.com/Kristofp/regexpilot-community/issues/new?template=bug_report.md)
+- [Open a feature request](https://github.com/Kristofp/regexpilot-community/issues/new?template=feature_request.md)
+- Or start from the [issue chooser](https://github.com/Kristofp/regexpilot-community/issues/new/choose)
 
 Please include your RegexPilot version (RegexPilot menu → About RegexPilot),
 macOS version, the regex flavor you were using (if relevant), and steps to
