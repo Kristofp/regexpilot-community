@@ -33,28 +33,30 @@ plain-English explanation of every part as you work.
 ### Why it's different
 
 Most regex tools test your pattern with JavaScript and hope it behaves the
-same in the language you actually ship. RegexPilot bundles **native engines
-for all 21 supported flavors** and runs the pattern through the real
-interpreter for your target language, rather than an approximation:
+same in the language you actually ship. RegexPilot runs the pattern through
+**the real engine for your target language**, bundled in the app for all 21
+flavors — nothing else to install. Dart runs on JavaScriptCore (Dart's `RegExp`
+is a port of V8's Irregexp) and Elixir on PCRE2 (what Erlang's `:re` wraps); if
+you have Dart or Elixir installed, RegexPilot uses that runtime instead:
 
-| Flavor                                            | Engine                                                                                                                                                                                      |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| JavaScript / TypeScript                           | JavaScriptCore (the engine Safari runs), with `regress` (a pure-Rust ES2018 engine) as an automatic fallback if the system framework is unreachable                                         |
-| Python                                            | CPython (`re` and `regex`)                                                                                                                                                                  |
-| Java, Kotlin, Scala, Groovy, Clojure (JVM family) | `java.util.regex` via GraalVM native-image                                                                                                                                                  |
-| Ruby                                              | Onigmo, statically linked                                                                                                                                                                   |
-| C#                                                | .NET                                                                                                                                                                                        |
-| PHP                                               | PCRE2 via static-php-cli                                                                                                                                                                    |
-| Go                                                | Go's stdlib `regexp` (RE2, no backtracking)                                                                                                                                                 |
-| Rust                                              | the `regex` crate (RE2-family, default) or `fancy-regex` (backtracking, selectable — for lookaround/backreferences)                                                                         |
-| Swift                                             | `NSRegularExpression` (ICU regex)                                                                                                                                                           |
-| PostgreSQL                                        | PostgreSQL's own Spencer ARE engine, statically linked                                                                                                                                      |
-| MySQL                                             | ICU                                                                                                                                                                                         |
-| Perl                                              | Bundled microperl                                                                                                                                                                           |
-| Dart                                              | Dart's own `RegExp` (V8-derived Irregexp) via the user's system Dart SDK, with a JavaScriptCore-based approximation as fallback if no SDK is installed                                      |
-| Elixir                                            | Erlang's `:re` (PCRE2-based) via the user's system Elixir/Erlang install, with a PCRE2 approximation as fallback if it isn't installed                                                      |
-| R                                                 | base R's TRE engine by default (POSIX, no lookaround), or PCRE2 (`perl=TRUE`) when selected — via the user's system R install, with a PCRE2 approximation as fallback if it isn't installed |
-| Shell                                             | Bundled TRE, statically linked (POSIX BRE/ERE) — not BSD or GNU grep/sed/awk, which the sandboxed app cannot execute                                                                        |
+| Flavor                                            | Engine                                                                                                                                                 |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| JavaScript / TypeScript                           | JavaScriptCore (the engine Safari runs), with `regress` (a pure-Rust ES2018 engine) as an automatic fallback if the system framework is unreachable    |
+| Python                                            | CPython (`re` and `regex`)                                                                                                                             |
+| Java, Kotlin, Scala, Groovy, Clojure (JVM family) | `java.util.regex` via GraalVM native-image                                                                                                             |
+| Ruby                                              | Onigmo, statically linked                                                                                                                              |
+| C#                                                | .NET                                                                                                                                                   |
+| PHP                                               | PCRE2 via static-php-cli                                                                                                                               |
+| Go                                                | Go's stdlib `regexp` (RE2, no backtracking)                                                                                                            |
+| Rust                                              | the `regex` crate (RE2-family, default) or `fancy-regex` (backtracking, selectable — for lookaround/backreferences)                                    |
+| Swift                                             | `NSRegularExpression` (ICU regex)                                                                                                                      |
+| PostgreSQL                                        | PostgreSQL's own Spencer ARE engine, statically linked                                                                                                 |
+| MySQL                                             | ICU                                                                                                                                                    |
+| Perl                                              | Bundled microperl                                                                                                                                      |
+| Dart                                              | JavaScriptCore, bundled — Dart's `RegExp` is a port of V8's Irregexp; your own Dart SDK is used instead when one is installed                          |
+| Elixir                                            | PCRE2, bundled — the library Erlang's `:re` wraps; your own Elixir install is used instead when there is one                                           |
+| R                                                 | base R's TRE engine by default (POSIX, no lookaround), or PCRE2 (`perl=TRUE`) when selected — both bundled and run inside the app, no R install needed |
+| Shell                                             | Bundled TRE, statically linked (POSIX BRE/ERE) — not BSD or GNU grep/sed/awk, which the sandboxed app cannot execute                                   |
 
 **21 flavors in total:** JavaScript, TypeScript, Python, Java, C#, PHP, Go,
 Rust, Swift, Kotlin, Ruby, PostgreSQL, MySQL, Shell, R, Dart, Scala, Perl,
@@ -67,7 +69,8 @@ Elixir, Groovy, Clojure.
   Qwen, Mistral, Groq, OpenRouter, xAI), point it at any custom
   OpenAI-compatible endpoint, or run fully offline with LM Studio, Ollama,
   llama.cpp or LocalAI.
-- **Voice dictation** — on-device, via a bundled Whisper model, 100 languages.
+- **Voice dictation** — on-device, via a bundled Whisper model; pick one of
+  29 languages or let it detect the language per recording.
 - **Live testing** — paste sample text; matches and capture groups highlight
   as you type, in both match and replace modes.
 - **Pattern library** — curated patterns plus folders, tags, search, import
@@ -96,18 +99,17 @@ RegexPilot is a **one-time purchase**, not a subscription.
 - The full visual builder — canvas, drag-and-drop, inspector
 - JavaScript and TypeScript flavors only
 - Match/replace testing
-- Pattern library (local, capped at 20 patterns)
+- Pattern library (local, with no limit on how many patterns you save)
 - Every bundled theme, plus theme import/export
 - Export to JSON
 
-**€19 one-time license** (v2 owners get a 50% upgrade discount) unlocks:
+**€19 one-time license** (v1.x license holders get 50% off the v2 upgrade) unlocks:
 
-- All 21 flavors, with their authentic native engines
+- All 21 flavors, with their authentic engines, all bundled
 - AI-assisted regex generation (bring your own API key — AI is not available
   on the free tier, with or without your own key)
-- Unlimited pattern library
-- All export formats, including code generation, PNG/SVG, SnippetsLab and
-  VS Code
+- All export formats: PNG/SVG, SnippetsLab, VS Code, and code generation for
+  the 19 flavors beyond JavaScript/TypeScript (JS/TS code generation is free)
 
 **30-day free trial** of everything above starts the first time you select a
 non-JavaScript flavor — no signup, no credit card. After the trial, the app
@@ -174,10 +176,10 @@ issues, email support@regexpilot.com instead of filing an issue.
 [`themes/`](themes/) holds every bundled color theme as a ready-to-import
 JSON file — `<id>.json`, one per theme, generated straight from the app's
 own theme catalog by the same serializer "Settings → Appearance →
-Export Theme…" uses, so the file you'd get from the app and the file published here
+Export…" uses, so the file you'd get from the app and the file published here
 are the same shape. See [`themes/README.md`](themes/README.md) for the full
 list. To use one, download a file and import it via Settings → Appearance →
-"Import Theme…".
+"Import…".
 
 ## Translations
 

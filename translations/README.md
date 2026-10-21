@@ -7,20 +7,20 @@ own. `en.json` is the reference locale: every other
 file's key set is measured against it.
 
 "Translated" counts keys whose value differs from the English string
-for the same key. That both over- and under-counts real effort: a small
+for the same key. That can only under-count real effort: a small
 number of terms (regex jargon like "Lookahead" or "Capturing group")
 are deliberately kept in English in every locale by app policy, and
 read as "not translated" here even though nothing is missing — and a
-translation that happens to match the English word would read as
-translated when it coincidentally isn't distinguishable. Treat the
+correct translation that happens to match the English word also reads
+as "not translated". Treat the
 percentage as a rough coverage signal, not a certification.
 
 | Locale | Translated | Total | % |
 | --- | --- | --- | --- |
-| en | 1816 | 1816 | 100% |
-| nl | 1353 | 1816 | 75% |
-| fr | 1386 | 1816 | 76% |
-| de | 1386 | 1816 | 76% |
+| en | 2484 | 2484 | 100% |
+| nl | 2005 | 2484 | 81% |
+| fr | 2042 | 2484 | 82% |
+| de | 2042 | 2484 | 82% |
 
 ## Contributing a translation
 
@@ -31,7 +31,7 @@ percentage as a rough coverage signal, not a certification.
    at render time rather than just reading oddly.
 3. Open a pull request against this repository, or open an issue with
    your corrections attached, at
-   [RegexPilot/issues/new/choose](https://github.com/Kristofp/RegexPilot/issues/new/choose).
+   [regexpilot-community/issues/new/choose](https://github.com/Kristofp/regexpilot-community/issues/new/choose).
 
 Translations contributed here are **not** wired into the live app
 automatically — a maintainer reviews each contribution and merges it
