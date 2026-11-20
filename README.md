@@ -52,7 +52,7 @@ you have Dart or Elixir installed, RegexPilot uses that runtime instead:
 | Swift                                             | `NSRegularExpression` (ICU regex)                                                                                                                      |
 | PostgreSQL                                        | PostgreSQL's own Spencer ARE engine, statically linked                                                                                                 |
 | MySQL                                             | ICU                                                                                                                                                    |
-| Perl                                              | Bundled microperl                                                                                                                                      |
+| Perl                                              | Bundled miniperl                                                                                                                                       |
 | Dart                                              | JavaScriptCore, bundled — Dart's `RegExp` is a port of V8's Irregexp; your own Dart SDK is used instead when one is installed                          |
 | Elixir                                            | PCRE2, bundled — the library Erlang's `:re` wraps; your own Elixir install is used instead when there is one                                           |
 | R                                                 | base R's TRE engine by default (POSIX, no lookaround), or PCRE2 (`perl=TRUE`) when selected — both bundled and run inside the app, no R install needed |

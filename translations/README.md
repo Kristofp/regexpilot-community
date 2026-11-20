@@ -17,10 +17,10 @@ percentage as a rough coverage signal, not a certification.
 
 | Locale | Translated | Total | % |
 | --- | --- | --- | --- |
-| en | 2484 | 2484 | 100% |
-| nl | 2005 | 2484 | 81% |
-| fr | 2042 | 2484 | 82% |
-| de | 2042 | 2484 | 82% |
+| en | 2503 | 2503 | 100% |
+| nl | 2021 | 2503 | 81% |
+| fr | 2059 | 2503 | 82% |
+| de | 2059 | 2503 | 82% |
 
 ## Contributing a translation
 
